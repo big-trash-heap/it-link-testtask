@@ -1,0 +1,31 @@
+type Color {
+  id: Int!
+  name: String
+  colorHex: String
+  colorCss: String
+}
+
+input FindColorByNameProps {
+  caselessName: String!
+}
+
+input FindAllColorsWithPaginationProps {
+  page: Int!
+}
+
+input CreateColorProps {
+  name: String!
+  colorHex: String!
+}
+
+type Query {
+  findColorByName(props: FindColorByNameProps!): Color!
+  findAllColors: [Color!]!
+  findAllColorsWithPagination(
+    props: FindAllColorsWithPaginationProps!
+  ): [Color!]!
+}
+
+type Mutation {
+  createColor(props: CreateColorProps!): Color!
+}
